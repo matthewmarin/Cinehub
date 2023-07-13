@@ -5,8 +5,10 @@ import { sidebar } from './sidebar.js';
 import { createMovieCard } from './movie-card.js';
 
 
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const movieId = urlParams.get('movieId');
 
-const movieId = window.localStorage.getItem('movieId');
 const pageContent = document.querySelector ('[page-content]');
 
 sidebar();
@@ -42,7 +44,7 @@ const getDirectors = function(crewList) {
 
 // return only trailers and teasers as array
 const filterVideos = function (videoList) {
-    return videoList.filter(({ type, site }) => (type === 'Trailer' || type === 'Teaser') && site.toLowerCase() === 'youtube');
+    return videoList.filter(({ type, site }) => (type === 'Trailer' || type === 'Teaser') && site === 'YouTube');
 }
 
 fetchDataFromServer(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${api_key}&append_to_response=casts,videos,images,releases`, function (movie) {

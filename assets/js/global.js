@@ -15,14 +15,6 @@ addEventOnElements(searchTogglers, 'click', function () {
     searchBox.classList.toggle('active');
 });
 
-
-// Store MovieId in `localStorage when you click any movie card`
-
-const getMovieDetail = function(movieId) {
-  window.localStorage.setItem('movieId', String(movieId));
-}
-
-
 const options = {
     method: 'GET',
     headers: {
