@@ -18,7 +18,7 @@ const homePageSection = [
         path: '/movie/upcoming'
     },
     {
-        title: 'Today\'s Trending Movies',
+        title: 'This Week Trending Movies',
         path: '/trending/movie/week'
     },
     {
