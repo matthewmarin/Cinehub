@@ -21,10 +21,8 @@ sidebar();
 let currentPage = 1;
 let totalPages = 0;
 
-const fetchURL = `https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&sort_by=popularity.desc&include_adult=false&page=${currentPage}&${genre}`;
 
-
-fetchDataFromServer(fetchURL, function ({ results: movieList, total_pages }) {
+fetchDataFromServer(`https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&sort_by=popularity.desc&include_adult=false&page=${currentPage}&${genre}`, function ({ results: movieList, total_pages }) {
 
 
     totalPages = total_pages;
@@ -90,7 +88,7 @@ fetchDataFromServer(fetchURL, function ({ results: movieList, total_pages }) {
         currentPage++;
         this.classList.add('loading');
 
-        fetchDataFromServer(fetchURL, ({ results: movieList }) => {
+        fetchDataFromServer(`https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&sort_by=popularity.desc&include_adult=false&page=${currentPage}&${genre}`, ({ results: movieList }) => {
 
             this.classList.remove('loading');
 
