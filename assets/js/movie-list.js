@@ -6,10 +6,10 @@ import { createMovieCard } from './movie-card.js';
 import { search } from './search.js';
 
 const queryString = window.location.search;
+
 const urlParams = new URLSearchParams(queryString);
 const pageTitle = urlParams.get('pageTitle');
 const genreId = urlParams.get('genreId');
-const genreName = urlParams.get('genreName');
 
 const pageContent = document.querySelector('[page-content]');
 
@@ -32,7 +32,7 @@ fetchDataFromServer(`https://api.themoviedb.org/3/discover/movie?api_key=${api_k
 
     movieListElem.innerHTML = `
         <div class="title-wrapper">
-            <h1 class="heading">${genreId}</h1>
+            <h1 class="heading">${pageTitle}</h1>
         </div>
 
         <div class="grid-list">
