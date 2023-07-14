@@ -26,4 +26,39 @@ fetchDataFromServer(`https://api.themoviedb.org/3/discover/movie?api_key=${api_k
     totalPages = total_pages;
 
     document.title = `${genreName} Movies - Cinehub`;
+
+    const movieListElem = document.createElement('section');
+    movieListElem.classList.add('movie-list', 'genre-list');
+    movieListElem.ariaLabel = `${genreName} Movies`;
+
+    movieListElem.innerHTML = html`
+        <div class="title-wrapper">
+            <h1 class="heading">${genreName}</h1>
+        </div>
+
+        <div class="grid-list">
+        
+            <div class="movie-card">
+                <figure class="poster-box card-banner">
+                    <img src="./assets/images/slider-control.jpg" alt="Puss in Boots: The Last Wish" class="img-cover">
+                </figure>
+
+                <h4 class="title">Scary Movie</h4>
+
+                <div class="meta-list">
+                    <div class="meta-item">
+                        <img src="./assets/images/star.png" width="20" height="20" loading="lazy" alt="rating">
+                        <span class="span">8.4</span>
+                    </div>
+
+                    <div class="card-badge">2022</div>
+                </div>
+
+                <a href="./detail.html" class="card-btn" title="Puss in Boots: The Last Wish"></a>
+            </div>
+
+        </div>
+
+            <button class="btn load-more" load-more>Load More</button>
+    `;
 });
