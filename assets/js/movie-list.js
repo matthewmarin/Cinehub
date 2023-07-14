@@ -31,7 +31,7 @@ fetchDataFromServer(`https://api.themoviedb.org/3/discover/movie?api_key=${api_k
     movieListElem.classList.add('movie-list', 'genre-list');
     movieListElem.ariaLabel = `${genreName} Movies`;
 
-    movieListElem.innerHTML = html`
+    movieListElem.innerHTML = `
         <div class="title-wrapper">
             <h1 class="heading">${genreName}</h1>
         </div>
@@ -61,4 +61,15 @@ fetchDataFromServer(`https://api.themoviedb.org/3/discover/movie?api_key=${api_k
 
             <button class="btn load-more" load-more>Load More</button>
     `;
+
+
+    //Add movie Card based on fetched item
+
+    for (const movie of movieList) {
+        const movieCard = createMovieCard(movie);
+
+        movieListElem.querySelector('.grid-list').appendChild(movieCard);
+    }
+
+    pageContent.appendChild(movieListElem);
 });
