@@ -13,6 +13,7 @@ import { createMovieCard } from './movie-card.js';
 // collect genre name & url parameters
 const genreName = window.localStorage.getItem('genreName');
 const genre = window.localStorage.getItem('genre');
+
 const pageContent = document.querySelector('[page-content]');
 
 sidebar();
@@ -20,7 +21,10 @@ sidebar();
 let currentPage = 1;
 let totalPages = 0;
 
-fetchDataFromServer(`https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&sort_by=popularity.desc&include_adult=false&page=${currentPage}&${genre}`, function ({ results: movieList, total_pages }) {
+const fetchURL = `https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&sort_by=popularity.desc&include_adult=false&page=${currentPage}&${genre}`;
+
+
+fetchDataFromServer(fetchURL, function ({ results: movieList, total_pages }) {
 
 
     totalPages = total_pages;
@@ -72,4 +76,31 @@ fetchDataFromServer(`https://api.themoviedb.org/3/discover/movie?api_key=${api_k
     }
 
     pageContent.appendChild(movieListElem);
+
+
+    //Load more button functionality
+
+    document.querySelector('[load-more]').addEventListener('click', function () {
+
+        if(currentPage >= totalPages) {
+            this.style.display = 'none';
+            return;
+        }
+
+        currentPage++;
+        this.classList.add('loading');
+
+        fetchDataFromServer(fetchURL, ({ results: movieList }) => {
+
+            this.classList.remove('loading');
+
+            for (const movie of movieList) {
+                const movieCard = createMovieCard(movie);
+
+                movieListElem.querySelector('.grid-list').appendChild(movieCard);
+            }
+
+        });
+
+    })
 });
