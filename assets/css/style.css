@@ -786,4 +786,25 @@ li { list-style: none; }
     border-block-start: 0;
     height: calc(100vh - 104px);
   }
+
+  .sidebar.active { transform: none; }
+
+  .sidebar-list,
+  .sidebar-footer { padding-inline: 56px; }
+
+  .container {
+    height: calc(100vh - 104px);
+    border-top-left-radius: var(--radius-36);
+  }
+
+  .banner-content { left: 100px; }
+
+  .search-modal {
+    top: 104px;
+    padding: 60px;
+  }
+
+  .backdrop-image {
+    border-top-left-radius: var(--radius-36);
+  }
 }

@@ -42,8 +42,6 @@ const genreLink = function () {
             link.classList.add('sidebar-link');
             link.setAttribute('href', `./movie-list.html?pageTitle=${genreName}&genreId=${genreId}`);
             link.setAttribute('menu-close', '');
-            // link.setAttribute('onclick', `getMovieList
-            // ('with_genres=${genreId}', '${genreName}')`);
             link.textContent = genreName;
 
             sidebarInner.querySelectorAll('.sidebar-list')[0].appendChild(link);
