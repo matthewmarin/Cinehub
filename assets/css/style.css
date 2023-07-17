@@ -375,7 +375,7 @@ li { list-style: none; }
 .search-field:hover { box-shadow: 0 0 0 2px var(--yellowOrange);}
 
 .search-field:focus {
-  box-shadow: 0 0 0 2px var(--on-surface);
+  box-shadow: 0 0 0 2px var(--yellowOrange);
   padding-inline-start: 16px;
 }
 
