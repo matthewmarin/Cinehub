@@ -195,8 +195,6 @@ const createMovieList = function ({ results: movieList}, title) {
     pageContent.appendChild(movieListElem);
 }
 
-search ();
-
 
 
 
