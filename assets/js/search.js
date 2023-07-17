@@ -28,7 +28,7 @@ export function search () {
 
         searchTimeout = setTimeout(function() {
             fetchDataFromServer(`https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${searchField.value}&page=1&include_adult=false`, function ({ results: movieList }) {
-
+                https://arbeitnow.com/api/job-board-api?jobs=${tags}
             searchWrapper.classList.remove('searching');
             searchResultModal.classList.add('active');
             searchResultModal.innerHTML = '';
