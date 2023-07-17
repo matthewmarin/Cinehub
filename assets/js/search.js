@@ -34,7 +34,7 @@ export function search () {
             searchResultModal.innerHTML = '';
 
             searchResultModal.innerHTML = `
-            <p class="label">Results for</p>
+            <p class="results">Results for</p>
 
             <h1 class="heading">${searchField.value}</h1>
 
