@@ -15,10 +15,12 @@ addEventOnElements(searchTogglers, 'click', function () {
     searchBox.classList.toggle('active');
 });
 
-const getMovieList = function(genre, genreName) {
-  window.localStorage.setItem('genre', genre);
+
+const getMovieList = function(urlParam, genreName) {
+  window.localStorage.setItem('urlParam', urlParam);
   window.localStorage.setItem('genreName', genreName);
 }
+
 
 
 const options = {
